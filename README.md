@@ -72,7 +72,7 @@ Before setting up the project, ensure you have the following installed:
    cd ZCLS-for-CirMetrics
    ```
 
-2. **Install Dependencies (navigate to src directory)**
+2. **Install Dependencies**
 
    ```bash
    cd src
@@ -102,7 +102,7 @@ Before setting up the project, ensure you have the following installed:
 
 ### ZK-Rollup Benchmark
 
-Follow the workflow below to run and benchmark the ZK-Rollup:
+Follow the workflow below to run and benchmark the ZK-Rollup (every steps from now on start from src directory):
 
 #### Step 1: ⚡ ZK Circuit Setup
 
@@ -124,8 +124,6 @@ sh -x scripts/setup2-circuit-compilation.sh ExitValidator
 ```
 
 **Export Solidity Verifier Contracts**
-
-Run from the root folder:
 
 ```bash
 # Export RollupValidator
@@ -165,7 +163,7 @@ npx hardhat node
 
 **Deploy Smart Contracts and Execute ZK-Rollup**
 
-**Option 1: Automated Running**
+**Option 1: Automated Running (Recommended)**
 
 ```bash
 npm run dev

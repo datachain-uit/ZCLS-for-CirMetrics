@@ -1,3 +1,4 @@
+```
 backend/
 ├── src/
 │   ├── app.js                    # Main application entry point
@@ -25,3 +26,4 @@ backend/
 │   └── ptau/                    # Powers of tau ceremony files
 ├── package.json                 # Project dependencies and scripts
 └── readme.md                   # This documentation
+```
