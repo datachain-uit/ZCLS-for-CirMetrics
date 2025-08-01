@@ -1,0 +1,11 @@
+[0m[1m[38;5;9merror[P1012][0m[1m: UnrecognizedEOF { location: 469, expected: ["\"!\"", "\"(\"", "\"++\"", "\"-\"", "\"--\"", "\"[\"", "\"_\"", "\"assert\"", "\"component\"", "\"else\"", "\"for\"", "\"if\"", "\"input\"", "\"log\"", "\"output\"", "\"parallel\"", "\"return\"", "\"signal\"", "\"var\"", "\"while\"", "\"{\"", "\"}\"", "\"~\"", "r#\"0x[0-9A-Fa-f]*\"#", "r#\"[$_]*[a-zA-Z][a-zA-Z$_0-9]*\"#", "r#\"[0-9]+\"#"] }[0m
+  [0m[34m┌─[0m "6d7bc1f62e912001c70fde38cdb13de15dd4f5e5ac8f40013f1a2d57067a05fb.circom":1:1
+  [0m[34m│[0m
+[0m[34m1[0m [0m[34m│[0m [0m[31mp[0mragma circom 2.1.6;
+  [0m[34m│[0m [0m[31m^[0m [0m[31mhere[0m
+
+[31mprevious errors were found[0m
+Command exited with non-zero status 1
+0.00user 0.00system 0:00.03elapsed 23%CPU (0avgtext+0avgdata 7196maxresident)k
+0inputs+0outputs (0major+739minor)pagefaults 0swaps
+Compile time (ms): 59

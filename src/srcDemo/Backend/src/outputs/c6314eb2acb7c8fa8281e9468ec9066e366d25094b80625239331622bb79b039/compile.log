@@ -1,0 +1,15 @@
+[32mtemplate instances[0m: 72
+non-linear constraints: 244
+linear constraints: 274
+public inputs: 1
+private inputs: 1
+public outputs: 1
+wires: 521
+labels: 771
+[32mWritten successfully:[0m ./c6314eb2acb7c8fa8281e9468ec9066e366d25094b80625239331622bb79b039.r1cs
+[32mWritten successfully:[0m ./c6314eb2acb7c8fa8281e9468ec9066e366d25094b80625239331622bb79b039.sym
+[32mWritten successfully:[0m ./c6314eb2acb7c8fa8281e9468ec9066e366d25094b80625239331622bb79b039_js/c6314eb2acb7c8fa8281e9468ec9066e366d25094b80625239331622bb79b039.wasm
+[32mEverything went okay[0m
+0.92user 0.35system 0:01.42elapsed 90%CPU (0avgtext+0avgdata 189188maxresident)k
+0inputs+0outputs (0major+57639minor)pagefaults 0swaps
+Compile time (ms): 1447

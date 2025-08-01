@@ -1,0 +1,23 @@
+# General exclusions
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+artifacts/
+cache/
+*.ptau
+*.r1cs
+*.sym
+*.zkey
+*.wtns
+*.wasm
+input.json
+witness_calculator.js
+generate_witness.js
+public.json
+proof.json
+verification_key.json
+
+# Additional exclusions
+src/circom/
+withdrawproof.json
+batchproof.json

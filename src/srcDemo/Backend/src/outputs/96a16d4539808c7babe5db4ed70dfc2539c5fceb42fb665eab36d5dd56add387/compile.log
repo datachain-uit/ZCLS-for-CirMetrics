@@ -1,0 +1,13 @@
+[32mtemplate instances[0m: 72
+non-linear constraints: 244
+linear constraints: 524
+public inputs: 1
+private inputs: 1
+public outputs: 1
+wires: 771
+labels: 771
+[32mWritten successfully:[0m ./96a16d4539808c7babe5db4ed70dfc2539c5fceb42fb665eab36d5dd56add387.r1cs
+[32mWritten successfully:[0m ./96a16d4539808c7babe5db4ed70dfc2539c5fceb42fb665eab36d5dd56add387.sym
+[32mWritten successfully:[0m ./96a16d4539808c7babe5db4ed70dfc2539c5fceb42fb665eab36d5dd56add387_js/96a16d4539808c7babe5db4ed70dfc2539c5fceb42fb665eab36d5dd56add387.wasm
+[32mEverything went okay[0m
+Compile time (ms): 1772

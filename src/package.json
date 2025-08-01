@@ -1,0 +1,31 @@
+{
+  "name": "zk-rollup",
+  "version": "1.0.0",
+  "description": "A simple ZK rollup in Ethereum meant for learning",
+  "main": "main.mjs",
+  "scripts": {
+    "dev": "npm run reset && npm run deploy && npm run start",
+    "reset": "curl -X POST --data '{\"jsonrpc\":\"2.0\",\"method\":\"hardhat_reset\",\"params\":[],\"id\":1}' http://localhost:8545",
+    "deploy": "npx hardhat run scripts/deploy.mjs --network localhost",
+    "start": "node app.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "license": "BSD-3-Clause",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^3.0.4",
+    "concurrently": "^9.2.0",
+    "ethers": "^6.8.0",
+    "hardhat": "^2.25.0",
+    "wait-on": "^8.0.4"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.0",
+    "circomlib": "^2.0.5",
+    "circomlibjs": "^0.1.7",
+    "commander": "^11.1.0",
+    "ffjavascript": "^0.2.62",
+    "kill-port": "^2.0.1",
+    "snarkjs": "^0.7.2"
+  }
+}
