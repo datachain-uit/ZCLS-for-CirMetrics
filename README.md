@@ -353,7 +353,7 @@ zk-rollup-clone/
 ## 📚 Additional Documentation
 
 ### Research Papers
-- **Project Paper**: This will be update soon
+- **Project Paper**: This project paper will be updated soon.
 - **Submission Notes**: `submission/note.md`
 
 ### External Resources
