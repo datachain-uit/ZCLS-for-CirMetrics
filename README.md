@@ -329,7 +329,7 @@ Circuit compilation metrics can be observed during the circuit compilation phase
 ```
 
 ## 🗂️ Project Structure
-
+<!-- ├── LaTex-paper/                # LaTeX research paper source -->
 ```
 zk-rollup-clone/
 ├── submission/                 # Submission notes and documentation
@@ -353,7 +353,7 @@ zk-rollup-clone/
 ## 📚 Additional Documentation
 
 ### Research Papers
-- **Project Paper**: `LaTex-paper/main.tex`
+- **Project Paper**: This will be update soon
 - **Submission Notes**: `submission/note.md`
 
 ### External Resources
