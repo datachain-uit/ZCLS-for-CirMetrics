@@ -332,7 +332,6 @@ Circuit compilation metrics can be observed during the circuit compilation phase
 
 ```
 zk-rollup-clone/
-├── LaTex-paper/                # LaTeX research paper source
 ├── submission/                 # Submission notes and documentation
 ├── src/                        # Main source code directory
 │   ├── circuits/               # Circom circuit implementations
