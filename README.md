@@ -363,5 +363,6 @@ zk-rollup-clone/
 - [Original ZK-Rollup Implementation](https://github.com/hammurabi-mendes/zk-rollup) - Educational foundation by Hammurabi Mendes
 ---
 
-**Maintainer**: Minh Ngo  
-**Last Updated**: July 30, 2025
+## 👥 Contributor
+- 👑 Leader: M.Sc. IT. Võ Tấn Khoa  
+- 👨‍💻 Members: Ngô Võ Quang Minh
