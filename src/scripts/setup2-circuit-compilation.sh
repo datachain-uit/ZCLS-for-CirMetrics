@@ -1,17 +1,17 @@
 #!/bin/sh
   
 if [ $# -lt 1 ]; then
+  echo "Usage: $0 CIRCUIT_NAME [SIMP_LEVEL] [METHOD] [PTAU_SIZE]"
   echo "Must provide Circom filename prefix (without the .circom extension)"
+  echo "  CIRCUIT_NAME: Circom filename prefix (without .circom extension)"
+  echo "  SIMP_LEVEL: o0, o1, o2 (default: o1)"
+  echo "  PTAU_SIZE: 19-24 (default: 19)"
+  echo "  METHOD: groth16, plonk (default: groth16)"
   exit 1
 fi
 
-# Method can be plonk or groth16
-SIZE=23
-METHOD=groth16
-
 NAME=$1
 ZKEY_NAME=$(echo "$NAME" | tr '[:upper:]' '[:lower:]')
-PTAU_FINAL="../ptau/pot${SIZE}_final.ptau"
 DIRECTORY="circuits"
 
 # Choose simplification flag
@@ -25,7 +25,32 @@ if [ $# -ge 2 ]; then
   esac
 fi
 
-echo "Using circom simplification flag: $SIMP_LEVEL"
+# Choose method
+METHOD="groth16"
+if [ $# -ge 3 ]; then
+  case "$3" in
+    groth16|plonk) METHOD=$3 ;;
+    *) echo "Unknown method $3 (must be groth16 or plonk), using default: groth16"; METHOD="groth16" ;;
+  esac
+fi
+
+# Choose ptau size (19-24)
+SIZE=19
+if [ $# -ge 4 ]; then
+  case "$4" in
+    19|20|21|22|23|24) SIZE=$4 ;;
+    *) echo "Invalid ptau size $4 (must be 19-24), using default: 19"; SIZE=19 ;;
+  esac
+fi
+
+PTAU_FINAL="../ptau/pot${SIZE}_final.ptau"
+
+echo "Configuration:"
+echo "  Circuit: ${NAME}.circom"
+echo "  Optimization: $SIMP_LEVEL"
+echo "  PTAU size: $SIZE (supports up to 2^${SIZE} constraints)"
+echo "  Method: $METHOD"
+echo "  PTAU file: $PTAU_FINAL"
 
 # Circuit-specific for Groth16:
 #  - Generate proving/verification keys
@@ -40,7 +65,7 @@ echo "Compile time for ${NAME}.circom: ${compile_time} ms"
 cd ${NAME}_js && \
 
 if [ ${METHOD} = "plonk" ]; then
-  snarkjs plonk setup ../${NAME}.r1cs $PTAU_FINAL ${ZKEY_NAME}_final.zkey
+  time snarkjs plonk setup ../${NAME}.r1cs $PTAU_FINAL ${ZKEY_NAME}_final.zkey
 fi
 
 if [ ${METHOD} = "groth16" ]; then

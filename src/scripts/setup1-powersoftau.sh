@@ -1,5 +1,22 @@
+#!/bin/sh
+
 SIZE=19
 CURVE=bn128
+
+# If SIZE is provided as argument, use it
+if [ $# -ge 1 ]; then
+  # Validate SIZE is a positive integer
+  if echo "$1" | grep -E '^[0-9]+$' > /dev/null; then
+    SIZE=$1
+  else
+    echo "Error: SIZE must be a positive integer, using default: 19"
+  fi
+fi
+
+echo "Configuration:"
+echo "  PTAU size: $SIZE (supports up to 2^${SIZE} constraints)"
+echo "  Curve: $CURVE"
+echo "  Output: pot${SIZE}_final.ptau"
 
 mkdir -p ptau
 cd ptau

@@ -1,5 +1,5 @@
 import { buildPoseidon, buildEddsa } from 'circomlibjs'
-import { wtns, groth16 } from 'snarkjs'
+import { wtns, groth16, powersOfTau } from 'snarkjs'
 import { program } from 'commander'
 import { utils } from 'ffjavascript'
 import fs from 'fs'
@@ -11,12 +11,10 @@ import * as ethereumConnector from './ethereumConnector.mjs'
 
 // Configuration for benchmarking
 const ROLLUP_CONFIG = {
-	ACCOUNT_TREE_DEPTH: 8,
 	TRANSACTION_TREE_DEPTH: 2,
-	BATCH_SIZE: 4, // Easily configurable batch size for benchmarking
-	ACTIVE_ACCOUNTS: 3,
-	TRANSFER_AMOUNT: 1
 }
+
+let ACCOUNT_TREE_DEPTH = 8
 
 const RPC_ENDPOINT = "http://127.0.0.1:8545/"
 
@@ -80,7 +78,7 @@ function loadUserAccounts() {
 	//console.log(userAccounts)
 }
 
-let rollupSequencer = new TransactionSequencer(ROLLUP_CONFIG.ACCOUNT_TREE_DEPTH, ROLLUP_CONFIG.TRANSACTION_TREE_DEPTH, poseidonInstance, eddsaInstance)
+let rollupSequencer = new TransactionSequencer(ACCOUNT_TREE_DEPTH, ROLLUP_CONFIG.TRANSACTION_TREE_DEPTH, poseidonInstance, eddsaInstance)
 
 // Metrics tracking object
 let performanceMetrics = {
@@ -320,9 +318,9 @@ async function executeBenchmark() {
 	// rollupSequencer.createSignedTransaction(userAccounts[3].privkey, userAccounts[3].pubkey, userAccounts[5].pubkey, 3)
 	// rollupSequencer.createSignedTransaction(userAccounts[2].privkey, userAccounts[2].pubkey, userAccounts[4].pubkey, 5)
 	// rollupSequencer.createSignedTransaction(userAccounts[4].privkey, userAccounts[4].pubkey, userAccounts[0].pubkey, 5)
-	const ACTIVE_ACCOUNTS = ROLLUP_CONFIG.ACTIVE_ACCOUNTS;
-	const BATCH_SIZE = ROLLUP_CONFIG.BATCH_SIZE; // Configurable batch size for benchmarking
-	const TRANSFER_AMOUNT = ROLLUP_CONFIG.TRANSFER_AMOUNT;
+	const ACTIVE_ACCOUNTS = 3;
+	const BATCH_SIZE = Math.pow(2, ROLLUP_CONFIG.TRANSACTION_TREE_DEPTH); // Configurable batch size for benchmarking
+	const TRANSFER_AMOUNT = 1;
 	console.log("Starting transaction batch generation");
 	for (let i = 0; i < (BATCH_SIZE - 1); i++) {
 		let senderIndex = 1 + (i % ACTIVE_ACCOUNTS); // Start from userAccounts[1]
