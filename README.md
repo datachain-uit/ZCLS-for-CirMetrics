@@ -49,7 +49,9 @@ CirMetrics provides the following functionality:
 - Visualizes performance trade-offs across optimization levels (-O0, -O1, -O2), enabling comparative analysis of circuit efficiency and resource usage
 - Supports optimization decisions in ZCLS by providing data-driven insights based on circuit update frequency and proof generation volume, helping developers select the most suitable optimization strategy for their development stage
 
-## 🚀 Getting Started
+<a id="getting-started"></a>
+
+## 🚀 Getting Started 
 
 ### Prerequisites
 
@@ -62,6 +64,8 @@ Before setting up the project, ensure you have the following installed:
 
 **Memory Requirements:**
 - 32GB+ RAM for maximum batch size of 64
+
+<a id="installation"></a>
 
 ### 📦 Installation
 
@@ -98,25 +102,28 @@ Before setting up the project, ensure you have the following installed:
    rustc --version
    ```
 
+<a id="usage"></a>
+
 ## 💻 Usage
 
 ### ZK-Rollup Benchmark
 
-Follow the workflow below to run and benchmark the ZK-Rollup (every steps from now on start from src directory):
+Follow the workflow below to run and benchmark the ZK-Rollup with Groth16 and batch size 4. You can configure the batch size and ZKP scheme later using the [Configuration](#configuration) section. All steps from now on should be executed from the `src` directory:
 
 #### Step 1: ⚡ ZK Circuit Setup
 
 **Generate Powers of Tau for Trusted Setup**
+> **Note**: Instead of generating manually, you can download a pre-generated `.ptau` file from [SNARKJS](https://github.com/iden3/snarkjs) to save time. Ensure the `.ptau` file size supports your circuit's constraint count (e.g., `pot16_final.ptau` supports up to 2¹⁶ constraints). Save the `.ptau` file in `src/ptau` as `potXX_final.ptau` with XX as the power of two for compatibility. The example batch size is set to 4 with maximum constraints of 213,846, so `pot19_final.ptau` is sufficient.
 
 ```bash
 sh -x scripts/setup1-powersoftau.sh
 ```
 
-> **Note**: Instead of generating manually, you can download a pre-generated `.ptau` file from [SNARKJS](https://github.com/iden3/snarkjs) to save time. Ensure the `.ptau` file size supports your circuit's constraint count (e.g., `pot16_final.ptau` supports up to 2¹⁶ constraints). Save the `.ptau` file in `src/ptau` as `potXX_final.ptau` with XX as the power of two for compatibility. The example batch size is set to 4 with maximum constraints of 213,846, so `pot19_final.ptau` is sufficient.
+<!-- You can specify the size of the Powers of Tau (PoT) file by adding a size parameter at the end of the command. For example, to create a pot20_final.ptau file, use the following command: `sh -x scripts/setup1-powersoftau.sh 20`  -->
 
 **Compile Circuits and Generate Verification Artifacts**
 
-You can configure the optimization level and observe circuit compilation metrics through this step:
+You can configure the optimization level and observe circuit compilation metrics through this step (see [Configuration](#configuration)):
 
 ```bash
 sh -x scripts/setup2-circuit-compilation.sh RollupValidator
@@ -197,6 +204,7 @@ npx hardhat run app.mjs --network localhost
 5. **Verification Phase**: Verifies proofs and updates L1 state
 6. **Withdrawal Phase**: Demonstrates secure asset withdrawal
 
+<a id="cirmetrics"></a>
 
 ### 📊 CirMetrics
 
@@ -223,6 +231,8 @@ node app.js
 - Backend runs on port 5002
 - Frontend runs on port 5173
 
+<a id="configuration"></a>
+
 ## ⚙️ Configuration
 
 ### Batch Size Configuration
@@ -235,11 +245,7 @@ Modify the `ROLLUP_CONFIG` object in `app.mjs`:
 
 ```javascript
 const ROLLUP_CONFIG = {
-    ACCOUNT_TREE_DEPTH: 8,      // Max 2^8 = 256 accounts
     TRANSACTION_TREE_DEPTH: 2,  // Max 2^2 = 4 transactions per batch
-    BATCH_SIZE: 4,              // Current batch size for testing
-    ACTIVE_ACCOUNTS: 3,         // Number of accounts to use
-    TRANSFER_AMOUNT: 1          // Amount per transfer
 }
 ```
 
@@ -286,6 +292,14 @@ export NODE_OPTIONS="--max-old-space-size=8192"
 # For batch sizes 128+ use space size of 16384 or higher
 export NODE_OPTIONS="--max-old-space-size=16384"
 ```
+<a id="performance-metrics"></a>
+
+### Additional Configuration
+Additional configurations are available in the setup scripts located in the `src/scripts/` folder, including:
+- ZKP scheme selection (Groth16/PLONK) for compilation and proving
+- PTAU size configuration for ceremony generation and circuit compilation  
+- Optimization levels and other advanced parameters
+
 ## 📈 Performance Metrics
 
 The application automatically tracks and displays comprehensive performance metrics for batch processing and withdrawal operations:
@@ -327,6 +341,7 @@ Circuit compilation metrics can be observed during the circuit compilation phase
   • Onchain Verification Time: 75ms
   • Gas Used: 288,079
 ```
+<a id="project-structure"></a>
 
 ## 🗂️ Project Structure
 <!-- ├── LaTex-paper/                # LaTeX research paper source -->
@@ -349,6 +364,7 @@ zk-rollup-clone/
 ├── README.md                   # Main documentation
 └── .gitignore                  # Git ignore patterns
 ```
+<a id="additional-documentation"></a>
 
 ## 📚 Additional Documentation
 
