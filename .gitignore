@@ -16,6 +16,8 @@ generate_witness.js
 public.json
 proof.json
 verification_key.json
+logs/
+temp/
 
 # Additional exclusions
 src/circom/
