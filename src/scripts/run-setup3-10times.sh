@@ -2,15 +2,17 @@
 # filepath: /home/student22/quangminh/ZCLS-for-CirMetrics/src/scripts/run-setup3-10times.sh
 
 if [ $# -lt 2 ]; then
-  echo "Usage: $0 CIRCUIT_NAME BATCH_SIZE [METHOD]"
-  echo "Example: ./run-setup3-10times.sh TxValidator 8 groth16"
-  echo "Example: ./run-setup3-10times.sh BatchVerifier 255 plonk"
+  echo "Usage: $0 CIRCUIT_NAME BATCH_SIZE [SIMP_LEVEL] [METHOD] [PTAU_SIZE]"
+  echo "Example: ./run-setup3-10times.sh RollupValidator 8 o1 groth16 19"
+  echo "Example: ./run-setup3-10times.sh BatchVerifier 255 o2 plonk 20"
   exit 1
 fi
 
 CIRCUIT_NAME=$1
 BATCH_SIZE=$2
-METHOD=${3:-groth16}
+SIMP_LEVEL=${3:-o1}
+METHOD=${4:-groth16}
+PTAU_SIZE=${5:-19}
 
 DIRECTORY="scripts"
 
