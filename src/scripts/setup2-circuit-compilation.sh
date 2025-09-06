@@ -38,8 +38,8 @@ fi
 SIZE=19
 if [ $# -ge 4 ]; then
   case "$4" in
-    19|20|21|22|23|24) SIZE=$4 ;;
-    *) echo "Invalid ptau size $4 (must be 19-24), using default: 19"; SIZE=19 ;;
+    19|20|21|22|23|24|25|26|27|28) SIZE=$4 ;;
+    *) echo "Invalid ptau size $4 (must be 19-28), using default: 19"; SIZE=19 ;;
   esac
 fi
 
