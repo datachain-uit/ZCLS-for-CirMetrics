@@ -3,7 +3,7 @@
 
 if [ $# -lt 2 ]; then
   echo "Usage: $0 CIRCUIT_NAME BATCH_SIZE [SIMP_LEVEL] [METHOD] [PTAU_SIZE]"
-  echo "Example: ./run-setup2-10times.sh TxValidator 8 o1 groth16 19"
+  echo "Example: ./run-setup2-10times.sh RollupValidator 8 o1 groth16 19"
   echo "Example: ./run-setup2-10times.sh BatchVerifier 255 o2 plonk 20"
   exit 1
 fi
