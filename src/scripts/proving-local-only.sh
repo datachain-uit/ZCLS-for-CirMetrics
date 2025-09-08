@@ -1,5 +1,5 @@
 #!/bin/sh
-# filepath: /mnt/d/vscode/ZCLS-for-CirMetrics/src/scripts/prove-only.sh
+# filepath: /mnt/d/vscode/ZCLS-for-CirMetrics/src/scripts/proving-local-only.sh
 
 if [ $# -lt 2 ]; then
   echo "Usage: $0 CIRCUIT_NAME METHOD"

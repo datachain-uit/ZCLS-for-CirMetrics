@@ -1,5 +1,5 @@
 #!/bin/sh
-# filepath: /mnt/d/vscode/ZCLS-for-CirMetrics/src/scripts/compile-circuit-only.sh
+# filepath: /mnt/d/vscode/ZCLS-for-CirMetrics/src/scripts/compilation-only.sh
 
 if [ $# -lt 1 ]; then
   echo "Usage: $0 CIRCUIT_NAME [SIMP_LEVEL]"
