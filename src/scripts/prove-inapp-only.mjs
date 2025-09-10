@@ -12,7 +12,7 @@ if (!circuitName) {
 const folder = `${circuitName}_js`;
 const wasmPath = path.join(folder, `${circuitName}.wasm`);
 const inputPath = path.join(folder, `input.json`);
-const zkeyPath = path.join(folder, `${circuitName}_final.zkey`);
+const zkeyPath = path.join(folder, `${circuitName.toLowerCase()}_final.zkey`);
 const proofPath = path.join(folder, `proof.json`);
 const publicPath = path.join(folder, `public.json`);
 

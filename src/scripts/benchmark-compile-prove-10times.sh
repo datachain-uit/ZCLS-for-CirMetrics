@@ -27,7 +27,7 @@ echo "================================================" | tee -a $LOGFILE
 for i in $(seq 1 10)
 do
   echo "========== Prove Run $i (batch_size=$BATCH_SIZE) ==========" | tee -a $LOGFILE
-  node "${DIRECTORY}/prove-inapp-only.mjs" $CIRCUIT_NAME 2>&1 | sed 's/\x1b\[[0-9;]*m//g' | tee -a $LOGFILE
+  time -v node "${DIRECTORY}/prove-inapp-only.mjs" $CIRCUIT_NAME 2>&1 | sed 's/\x1b\[[0-9;]*m//g' | tee -a $LOGFILE
   echo "================================================" | tee -a $LOGFILE
 done
 

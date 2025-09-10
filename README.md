@@ -136,15 +136,15 @@ sh -x scripts/setup2-circuit-compilation.sh ExitValidator
 # Export RollupValidator
 cd RollupValidator_js
 snarkjs zkey export solidityverifier rollupvalidator_final.zkey ../contracts/RollupValidator.sol
+sed -i 's/contract Groth16Verifier/contract RollupValidator/g' ../contracts/RollupValidator.sol
 cd ..
 
 # Export ExitValidator  
 cd ExitValidator_js
 snarkjs zkey export solidityverifier exitvalidator_final.zkey ../contracts/ExitValidator.sol
+sed -i 's/contract Groth16Verifier/contract ExitValidator/g' ../contracts/ExitValidator.sol
 cd ..
 ```
-
-> **Important**: Edit the exported Solidity files to rename contract classes to exactly `"RollupValidator"` and `"ExitValidator"`. The default names may be something like `"Groth16Verifier"`.
 
 #### Step 2: 📄 Contract Preparation
 
