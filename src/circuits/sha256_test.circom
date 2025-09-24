@@ -3,10 +3,10 @@ pragma circom 2.0.0;
 include "../node_modules/circomlib/circuits/sha256/sha256.circom";
 
 template Main() {
-    signal input in[8];
+    signal input in[512];
     signal output out[256];
 
-    component sha256 = Sha256(8);
+    component sha256 = Sha256(512);
 
     sha256.in <== in;
     out <== sha256.out;

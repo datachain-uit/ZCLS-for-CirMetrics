@@ -8,10 +8,17 @@ template Main() {
 
     component keccak[3];
 
+    // Tạo components và gán tất cả inputs
     for (var i = 0; i < 3; i++) {
         keccak[i] = Keccak(256, 256);
         for (var j = 0; j < 256; j++) {
             keccak[i].in[j] <== in[i][j];
+        }
+    }
+
+    // Sau khi tất cả inputs đã được gán, mới đọc outputs
+    for (var i = 0; i < 3; i++) {
+        for (var j = 0; j < 256; j++) {
             out[i][j] <== keccak[i].out[j];
         }
     }

@@ -18,6 +18,7 @@ if [ $# -ge 2 ]; then
     o0) SIMP_LEVEL="--O0" ;;
     o1) SIMP_LEVEL="--O1" ;;
     o2) SIMP_LEVEL="--O2" ;;
+    o2round) SIMP_LEVEL="--O2round 1" ;; # Partial O2: only initial Gaussian elimination
     *) echo "Unknown optimization level $2, using --O1"; SIMP_LEVEL="--O1" ;;
   esac
 fi

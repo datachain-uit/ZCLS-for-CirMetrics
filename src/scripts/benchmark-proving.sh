@@ -27,7 +27,8 @@ for i in $(seq 1 10)
 do
   echo "========== Run $i (batch_size=$BATCH_SIZE) ==========" | tee -a $LOGFILE
 
-  time -v node "${DIRECTORY}/prove-inapp-only.mjs" $CIRCUIT_NAME 2>&1 | sed 's/\x1b\[[0-9;]*m//g' | tee -a $LOGFILE
+  # time -v taskset -c 0-15 node "${DIRECTORY}/prove-inapp-only.mjs" $CIRCUIT_NAME 2>&1 | sed 's/\x1b\[[0-9;]*m//g' | tee -a $LOGFILE
+  time -v node "${DIRECTORY}/prove-inapp-only.mjs" $CIRCUIT_NAME $METHOD 2>&1 | sed 's/\x1b\[[0-9;]*m//g' | tee -a $LOGFILE
 
   echo "================================================" | tee -a $LOGFILE
 done
