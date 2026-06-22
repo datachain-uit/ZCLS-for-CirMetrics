@@ -1,5 +1,9 @@
 # ZCLS-for-CirMetrics
 
+**JOURNAL**: Khoa Tan VO, Minh Ngo, Thu Nguyen, Thu-Thuy Ta, Mong-Thy Nguyen Thi, Hong-Tri Nguyen, Tu-Anh Nguyen-Hoang, "ZCLS: A Lifecycle Strategy for Efficient ZK-Rollup Circuit Optimization in Circom", IEEE Access, Volume: 13, Page(s): 202840 - 202863 (2025).
+
+**LINK**: https://ieeexplore.ieee.org/document/11267406/
+
 This repository contains the **research implementation** used in our research paper: **"ZCLS: A Lifecycle Strategy for Efficient ZK-Rollup Circuit Optimization in Circom"**. 
 
 The codebase includes a minimal, educational implementation of a ZK-Rollup system on Ethereum, along with CirMetrics — a supporting tool designed to monitor and analyze circuit performance metrics during development. This setup enables reproducibility of our experimental results and facilitates further research in ZK circuit optimization.
